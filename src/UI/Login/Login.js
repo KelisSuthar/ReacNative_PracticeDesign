@@ -2,7 +2,8 @@ import React from 'react';
 import {KeyboardAvoidingView, useState} from 'react-native';
 import styles from './LoginStyles';
 import {NormalTextInput, NormalButton, CustomeDialog} from '../Views/view';
-
+import {stringsTexts,async_storage} from '../../Strings/string'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   SafeAreaView,
   ScrollView,
@@ -19,7 +20,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {stringsTexts} from '../../Strings/string';
+;
 const Login = props => {
   const [email, set_email] = React.useState('');
   const [pass, set_pass] = React.useState('');
@@ -41,6 +42,7 @@ const Login = props => {
       setdialogState(true);
       setdialogMsg(stringsTexts.wrongPass);
     } else {
+      await AsyncStorage.setItem(async_storage.IS_LOGIN,false)
       props.navigation.navigate('Home');
       setdialogState(false);
     }

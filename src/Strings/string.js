@@ -6,6 +6,10 @@ export const stringsTexts = {
   wrongPass: 'Please enter Valid Password',
   wrongEmail: 'Please enter Valid Email',
 };
+
+export const async_storage = {
+  IS_LOGIN  = 'IS_LOGIN'
+}
 export const homeData = [
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',

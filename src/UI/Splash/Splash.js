@@ -1,11 +1,18 @@
 import React from 'react';
 import {useEffect} from 'react';
+import {async_storage} from '../../Strings/string'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {StatusBar, Text, View} from 'react-native';
 const Splash = props => {
   useEffect(() => {
     setTimeout(() => {
-      props.navigation.navigate('Home');
+      if(await AsyncStorage.getItem(async_storage.IS_LOGIN)){
+        props.navigation.navigate('Home');
+      }else{
+        props.navigation.navigate('Login');
+      }
+      
     }, 3000);
   });
   return (
