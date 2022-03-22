@@ -7,12 +7,14 @@ import {StatusBar, Text, View} from 'react-native';
 const Splash = props => {
   useEffect(() => {
     setTimeout(() => {
-      if(await AsyncStorage.getItem(async_storage.IS_LOGIN)){
-        props.navigation.navigate('Home');
-      }else{
-        props.navigation.navigate('Login');
-      }
-      
+      const IS_LOGIN = AsyncStorage.getItem(async_storage.IS_LOGIN)
+      console.log('LOGIN FLAG' + IS_LOGIN);
+      // if (AsyncStorage.getItem(async_storage.IS_LOGIN) == true) {
+      //   props.navigation.navigate('BottomTabs');
+      // } else {
+      //   props.navigation.navigate('Login');
+      // }
+      props.navigation.navigate('BottomTabs');
     }, 3000);
   });
   return (

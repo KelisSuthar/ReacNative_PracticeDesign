@@ -2,7 +2,7 @@ import React from 'react';
 import {KeyboardAvoidingView, useState} from 'react-native';
 import styles from './LoginStyles';
 import {NormalTextInput, NormalButton, CustomeDialog} from '../Views/view';
-import {stringsTexts,async_storage} from '../../Strings/string'
+import {stringsTexts, async_storage} from '../../Strings/string';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   SafeAreaView,
@@ -20,7 +20,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-;
+
 const Login = props => {
   const [email, set_email] = React.useState('');
   const [pass, set_pass] = React.useState('');
@@ -42,9 +42,12 @@ const Login = props => {
       setdialogState(true);
       setdialogMsg(stringsTexts.wrongPass);
     } else {
-      await AsyncStorage.setItem(async_storage.IS_LOGIN,false)
-      props.navigation.navigate('Home');
+      AsyncStorage.setItem(async_storage.IS_LOGIN, false);
+      props.navigation.navigate('BottomTabs');
       setdialogState(false);
+      console.log(
+        'LOGIN FORM LOGIN FLAG' + AsyncStorage.getItem(async_storage.IS_LOGIN),
+      );
     }
   };
 
@@ -86,7 +89,7 @@ const Login = props => {
       <View style={styles.loginView}>
         <View
           style={{
-            height:200,
+            height: 200,
             width: '100%',
             opacity: 0.4,
             backgroundColor: 'white',
@@ -94,7 +97,7 @@ const Login = props => {
           }}
         />
 
-        <View style={{position: 'absolute',width:'100%'}}>
+        <View style={{position: 'absolute', width: '100%'}}>
           <View alignItems={'center'}>
             <NormalTextInput
               returnKeyType="next"
@@ -118,9 +121,9 @@ const Login = props => {
           </View>
         </View>
       </View>
-      
+
       <NormalButton onPress={submitData} />
-      
+
       {/* </ScrollView> */}
     </View>
   );

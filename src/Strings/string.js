@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 export const stringsTexts = {
   redirectSplash: 'Splash',
   redirectHome: 'Home',
@@ -8,8 +8,8 @@ export const stringsTexts = {
 };
 
 export const async_storage = {
-  IS_LOGIN  = 'IS_LOGIN'
-}
+  IS_LOGIN: 'IS_LOGIN',
+};
 export const homeData = [
   {
     path: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -53,12 +53,11 @@ export const homeData = [
   },
 ];
 
-export function getWidhPer(width_per){
-  const windowWidth = Dimensions.get('window').width*0.01;
-  return windowHeight*width_per
-
+export function getWidhPer(width_per) {
+  const windowWidth = Dimensions.get('window').width * 0.01;
+  return windowWidth * width_per;
 }
-export function getHeightPer(height_per){
-  const windowHeight = Dimensions.get('window').height*0.01;
-  return windowWidth*height_per  
+export function getHeightPer(height_per) {
+  const windowHeight = Dimensions.get('window').height * 0.01;
+  return windowHeight * height_per;
 }
